@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  .container
+    .row(style='margin-top: 15%')
+        h2 Cosine Similarity Measure
+        p Cosine Similarity Measure implemented with document weights built for the <a href="http://cs415.joan.myweb.cs.uwindsor.ca">03-60-415</a> project.
+    .row.docs-section
+        h4#code Code
+        pre
+            code=dataCode
+    .row.docs-section
+        h4#example Example
+        p A lazy example of how the Cosine Similarity Measure works using raw document weights to replace word weighting.
+        h5 Enter digit values:
+        input(type='text' id='1'  class='u-full-width').one.column
+        input(type='text' id='2'  class='u-full-width').one.column
+        input(type='text' id='3'  class='u-full-width').one.column
+        input(type='text' id='4'  class='u-full-width').one.column
+        input(type='text' id='5'  class='u-full-width').one.column
+        input(type='text' id='6'  class='u-full-width').one.column
+        input(type='text' id='7'  class='u-full-width').one.column
+        input(type='text' id='8'  class='u-full-width').one.column
+        input(type='text' id='9'  class='u-full-width').one.column
+        input(type='text' id='10' class='u-full-width').one.column
+    .row
+        input(type='submit' class='button-primary' value='Submit')
+
+    .row.docs-section
+        h4#contact Contact
+        form
+            .row
+                .six.columns
+                    label Your Email
+                    input(class='u-full-width' type='email' id='emailInput' placeholder='name@email.com')
+                .six.columns Reason for contacting
+                    select(class='u-full-width')
+                        option(value='Option 1') Questions
+                        option(value='Option 2') Admiration
+                        option(value='Option 3') Can I get your number?
+            label Message
+            textarea(class='u-full-width' placeholder='Hey Jonathan..')
+            input(type='submit' class='button-primary' value='Send')
+
+

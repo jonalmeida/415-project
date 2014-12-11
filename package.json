@@ -1,0 +1,40 @@
+{
+  "name": "415-project",
+  "version": "1.0.0",
+  "description": "Cosine Similarity Measure implemented with document weights",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonalmeida/415-project.git"
+  },
+  "keywords": [
+    "Cosine",
+    "Similarity",
+    "Measure",
+    "cosine",
+    "similarity",
+    "measure"
+  ],
+  "author": "Jonathan Almeida",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/jonalmeida/415-project/issues"
+  },
+  "homepage": "https://github.com/jonalmeida/415-project",
+  "dependencies": {
+    "express": "~4.9.0",
+    "body-parser": "~1.8.1",
+    "cookie-parser": "~1.3.3",
+    "morgan": "~1.3.0",
+    "serve-favicon": "~2.1.3",
+    "debug": "~2.0.0",
+    "jade": "~1.6.0",
+    "fs": "*"
+  },
+  "private": true
+}
+
