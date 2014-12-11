@@ -13,6 +13,13 @@ block content
     .row.docs-section
         h4#example Example
         p A lazy example of how the Cosine Similarity Measure works using raw document weights to replace word weighting.
+        br
+        h5 Enter digit values:
+        p Enter a space separated list of 10 weights. You can enter as many as you want as long as they are individually separated by a new line:
+        textarea(class='u-full-width' placeholder='1 2 3 4 5 6 7 8 9 10')
+    .row
+        input(type='submit' class='button-primary' value='Submit')
+    .row.docs-section
         h5 Enter digit values:
         input(type='text' id='1'  class='u-full-width' placeholder='1').one.column
         input(type='text' id='2'  class='u-full-width' placeholder='2').one.column
