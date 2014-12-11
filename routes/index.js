@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  var data_code = fs.readFileSync('routes/index.js', "utf-8");
+  var data_code = fs.readFileSync('app.js', "utf-8");
 
   //   , function (err, data) {
   //   if (err) {
