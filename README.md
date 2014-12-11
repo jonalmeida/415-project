@@ -3,6 +3,8 @@
 
 Cosine Similarity Measure implemented with document weights
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/jonalmeida/415-project)
+
 ## Pre-requisites
 - If you have [nodejs](https://nodejs.org) and [npm](https://npmjs.org) installed to continue the setup.
 
