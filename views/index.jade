@@ -10,29 +10,32 @@ block content
         h4#code Code
         pre
             code(class='prettyprint')=dataCode
-    .row.docs-section
+    .row.docs-section(id='submissionRow')
         h4#example Example
         p A lazy example of how the Cosine Similarity Measure works using raw document weights to replace word weighting.
         br
         h5 Enter digit values:
         p Enter a space separated list of 10 weights. You can enter as many as you want as long as they are individually separated by a new line:
-        textarea(class='u-full-width' placeholder='1 2 3 4 5 6 7 8 9 10')
+        textarea(class='u-full-width' placeholder='1 2 3 4 5 6 7 8 9 10' id='vectorBox')
+        div#answerLocation <strong>Answer: </strong>
     .row
-        input(type='submit' class='button-primary' value='Submit')
+        input(type='submit' class='button-primary' value='Submit' onclick='printTextBoxResult(calculateCosine(readVectorsFromTextBox()))')
     .row.docs-section
         h5 Enter digit values:
-        input(type='text' id='1'  class='u-full-width' placeholder='1').one.column
-        input(type='text' id='2'  class='u-full-width' placeholder='2').one.column
-        input(type='text' id='3'  class='u-full-width' placeholder='3').one.column
-        input(type='text' id='4'  class='u-full-width' placeholder='4').one.column
-        input(type='text' id='5'  class='u-full-width' placeholder='5').one.column
-        input(type='text' id='6'  class='u-full-width' placeholder='6').one.column
-        input(type='text' id='7'  class='u-full-width' placeholder='7').one.column
-        input(type='text' id='8'  class='u-full-width' placeholder='8').one.column
-        input(type='text' id='9'  class='u-full-width' placeholder='9').one.column
-        input(type='text' id='10' class='u-full-width' placeholder='10').one.column
+        input(type='text' id='t1'  class='u-full-width' placeholder='1').one.column
+        input(type='text' id='t2'  class='u-full-width' placeholder='2').one.column
+        input(type='text' id='t3'  class='u-full-width' placeholder='3').one.column
+        input(type='text' id='t4'  class='u-full-width' placeholder='4').one.column
+        input(type='text' id='t5'  class='u-full-width' placeholder='5').one.column
+        input(type='text' id='t6'  class='u-full-width' placeholder='6').one.column
+        input(type='text' id='t7'  class='u-full-width' placeholder='7').one.column
+        input(type='text' id='t8'  class='u-full-width' placeholder='8').one.column
+        input(type='text' id='t9'  class='u-full-width' placeholder='9').one.column
+        input(type='text' id='t10' class='u-full-width' placeholder='10').one.column
     .row
-        input(type='submit' class='button-primary' value='Submit')
+        div#answerIndexLocation <strong>Answer: </strong>
+    .row
+        input(type='submit' class='button-primary' value='Submit' onclick='printIndexResult(calculateCosine(readVectorFromIndexes()))')
 
     .row.docs-section
         h4#contact Contact
