@@ -32,7 +32,7 @@ block content
     .row
         div#answerLocation <strong>Answer: </strong>
     .row
-        input(type='submit' class='button-primary' value='Submit' onclick='computeCustomDataSet()')
+        input(type='submit' class='button-primary' value='Submit' onclick='computePrintSimilarity("u", readVectorsFromTextBox(), "answerLocation")')
     .row.docs-section
         h5 Compare an existing data set
         p If you want to add a document to an existing set of documents. You can enter values from 1 - 10 in the text boxes below. This document will be compared to a data set of 50 other random documents.
@@ -49,7 +49,7 @@ block content
     .row
         div#answerIndexLocation <strong>Answer: </strong>
     .row
-        input(type='submit' class='button-primary' value='Submit' onclick='computeCustomVector()')
+        input(type='submit' class='button-primary' value='Submit' onclick='computePrintSimilarity("t", dataSet, "answerIndexLocation")')
 
     .row.docs-section
         h4#contact Contact

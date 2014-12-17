@@ -53,22 +53,13 @@ function readVectorFromIndexes(set) {
     return insertedArray;
 }
 
-function computeCustomVector() {
-    var vector = readVectorFromIndexes("t");
+function computePrintSimilarity(option, dataSet, field) {
+    var vector = readVectorFromIndexes(option);
     var a, b;
     [a, b] = highestSimilarity(vector, dataSet);
     printTextBoxResult("Highing similarity <code>" + a + 
         "</code> from the document <code>[" + b + "]</code>", 
-        "answerIndexLocation");
-}
-
-function computeCustomDataSet() {
-    var vector = readVectorFromIndexes("u");
-    var a, b;
-    [a, b] = highestSimilarity(vector, readVectorsFromTextBox());
-    printTextBoxResult("Highing similarity <code>" + a + 
-        "</code> from the document <code>[" + b + "]</code>", 
-        "answerLocation");
+        field);
 }
 
 function highestSimilarity(vector, dataSet) {
@@ -81,7 +72,6 @@ function highestSimilarity(vector, dataSet) {
             highestComparisonItem = dataSet[i];
         }
     };
-    console.log("highestComparison: " + highestComparisonVal);
     return [highestComparisonVal, highestComparisonItem];
 }
 
