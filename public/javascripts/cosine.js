@@ -1,31 +1,23 @@
 // Dot product
-function dotProductVectors(vectors) {
-    product = 0;
-    for (var j = 0; j < vectors[0].length; j++) {
-        vect = 1;
-        for (var i = 0; i < vectors.length; i++) {
-            vect *= vectors[i][j];
-        };
-        product += vect;
+function dotProductVectors(vector1, vector2) {
+    var dotProduct = 0;
+    for (var i = 0; i < vector1.length; i++) {
+        dotProduct += (vector1[i] * vector2[i]);
     }
-    return product;
+
+    return dotProduct;
 }
 
 // Calculates the magnitude
 function magnitude(vector) {
-    return Math.sqrt(dotProductVectors([vector, vector])); 
+    return Math.sqrt(dotProductVectors(vector, vector)); 
 }
 
 // Actual calculation of the consine similarity
-function calculateCosine(vectors) {
-    var dot_product = dotProductVectors(vectors);
-    var magnitudes = 1;
-
-    for (var i = 0; i < vectors.length; i++) {
-        magnitudes *= magnitude(vectors[i]);
-    }
-    console.log(dot_product/magnitudes);
-    return dot_product/magnitudes;
+function calculateCosine(vector1, vector2) {
+    var magnitude1 = magnitude(vector1);
+    var magnitude2 = magnitude(vector2);
+    return dotProductVectors(vector1, vector2)/(magnitude1*magnitude2);
 }
 
 // Reads the text in the textbox as long as they're space separated
@@ -45,27 +37,52 @@ function readVectorsFromTextBox() {
 }
 
 // Prints the results of the textbox calculation
-function printTextBoxResult(text) {
-    document.getElementById("answerLocation").innerHTML = 
+function printTextBoxResult(text, field) {
+    document.getElementById(field).innerHTML = 
         "<strong>Answer:</strong> " + text;
 }
 
 // Reads the values in the single text boxes, and adds them 
 // to the data set of 50 documents.
 // You can add more documents and have them appened to the set as well.
-function readVectorFromIndexes() {
+function readVectorFromIndexes(set) {
     var insertedArray = [];
     for (var i = 1; i <= 10; i++) {
-        insertedArray.push(Number(document.getElementById("t"+i).value));
+        insertedArray.push(Number(document.getElementById(set+i).value));
     };
-    dataSet.push(insertedArray);
-    return dataSet;
+    return insertedArray;
 }
 
-// Prints the results of the textbox calculation
-function printIndexResult(text) {
-    document.getElementById("answerIndexLocation").innerHTML = 
-        "<strong>Answer:</strong> " + text;
+function computeCustomVector() {
+    var vector = readVectorFromIndexes("t");
+    var a, b;
+    [a, b] = highestSimilarity(vector, dataSet);
+    printTextBoxResult("Highing similarity <code>" + a + 
+        "</code> from the document <code>[" + b + "]</code>", 
+        "answerIndexLocation");
+}
+
+function computeCustomDataSet() {
+    var vector = readVectorFromIndexes("u");
+    var a, b;
+    [a, b] = highestSimilarity(vector, readVectorsFromTextBox());
+    printTextBoxResult("Highing similarity <code>" + a + 
+        "</code> from the document <code>[" + b + "]</code>", 
+        "answerLocation");
+}
+
+function highestSimilarity(vector, dataSet) {
+    var highestComparisonVal = 0;
+    var highestComparisonItem = [];
+    for (var i = 0; i < dataSet.length; i++) {
+        var comparison = calculateCosine(vector, dataSet[i]);
+        if (comparison > highestComparisonVal) { 
+            highestComparisonVal = comparison;
+            highestComparisonItem = dataSet[i];
+        }
+    };
+    console.log("highestComparison: " + highestComparisonVal);
+    return [highestComparisonVal, highestComparisonItem];
 }
 
 // This is my data set of 50 documents

@@ -15,15 +15,27 @@ block content
         h5 Create your own data set
         p A lazy example of how the Cosine Similarity Measure works using raw document weights to replace word weighting.
         br
-        h5 Enter digit values:
-        p Enter a space separated list of 10 weights. These documents will the only ones used in the calculation. You can enter as many as you want as long as they are individually separated by a new line:
+        h5 Enter custom data set
+        p Enter a space separated list of 10 weights. These documents will the only ones used in the calculation. You can enter as many as you want as long as they are individually separated by a new line. Also enter a document to compare with the data set you provide:
         textarea(class='u-full-width' placeholder='1 2 3 4 5 6 7 8 9 10' id='vectorBox')
+    .row
+        input(type='text' id='u1'  class='u-full-width' placeholder='1').one.column
+        input(type='text' id='u2'  class='u-full-width' placeholder='2').one.column
+        input(type='text' id='u3'  class='u-full-width' placeholder='3').one.column
+        input(type='text' id='u4'  class='u-full-width' placeholder='4').one.column
+        input(type='text' id='u5'  class='u-full-width' placeholder='5').one.column
+        input(type='text' id='u6'  class='u-full-width' placeholder='6').one.column
+        input(type='text' id='u7'  class='u-full-width' placeholder='7').one.column
+        input(type='text' id='u8'  class='u-full-width' placeholder='8').one.column
+        input(type='text' id='u9'  class='u-full-width' placeholder='9').one.column
+        input(type='text' id='u10' class='u-full-width' placeholder='10').one.column
+    .row
         div#answerLocation <strong>Answer: </strong>
     .row
-        input(type='submit' class='button-primary' value='Submit' onclick='printTextBoxResult(calculateCosine(readVectorsFromTextBox()))')
+        input(type='submit' class='button-primary' value='Submit' onclick='computeCustomDataSet()')
     .row.docs-section
-        h5 Add to an existing data set
-        p If you want to add a document to an existing set of documents. You can enter values from 1 - 10 in the text boxes below. This document will be added to a data set of 50 other random documents before calculating the Cosine Similarity between them.
+        h5 Compare an existing data set
+        p If you want to add a document to an existing set of documents. You can enter values from 1 - 10 in the text boxes below. This document will be compared to a data set of 50 other random documents.
         input(type='text' id='t1'  class='u-full-width' placeholder='1').one.column
         input(type='text' id='t2'  class='u-full-width' placeholder='2').one.column
         input(type='text' id='t3'  class='u-full-width' placeholder='3').one.column
@@ -37,7 +49,7 @@ block content
     .row
         div#answerIndexLocation <strong>Answer: </strong>
     .row
-        input(type='submit' class='button-primary' value='Submit' onclick='printIndexResult(calculateCosine(readVectorFromIndexes()))')
+        input(type='submit' class='button-primary' value='Submit' onclick='computeCustomVector()')
 
     .row.docs-section
         h4#contact Contact
