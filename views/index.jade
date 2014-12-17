@@ -11,7 +11,7 @@ block content
     function sendEmail() {
       var e = window.document.getElementById("email-reason");
       var title = e.options[e.selectedIndex].text;
-      window.location='mailto:no-reply@jonalmeida.com?subject=' + 
+      window.location='mailto:no-reply@jonalmeida.com?subject=' +
           title + '&body=' + window.document.getElementById("emailText").value;
     }
   .container
@@ -21,7 +21,7 @@ block content
         p It is a measure of similarity between two or more vectors of an inner product space that measures the cosine of the angle between them, and is commonly used in calculations for data mining.
     .row.docs-section
         h4#code Code
-        p This is code for <code>cosine.js</code> which is used to do all the calculations in javascript. Consider the comments above each method for more clarity on what is actually happening.
+        p This is the code for <code>cosine.js</code> which is used to do all the calculations in javascript. Consider the comments above each method for more clarity on what is actually happening.
         pre
             code(class='prettyprint')=dataCode
     .row.docs-section(id='submissionRow')
@@ -73,7 +73,7 @@ block content
                 .six.columns
                     label Your Email
                     input(class='u-full-width' type='email' id='emailInput' placeholder='name@email.com')
-                .six.columns 
+                .six.columns
                     label Reason for contacting
                     select(class='u-full-width' id='email-reason')
                         option(value='Option 1') Questions
