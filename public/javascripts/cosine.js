@@ -1,10 +1,9 @@
-// Dot product
+// Calculates the dot product between two vectors
 function dotProductVectors(vector1, vector2) {
     var dotProduct = 0;
     for (var i = 0; i < vector1.length; i++) {
         dotProduct += (vector1[i] * vector2[i]);
     }
-
     return dotProduct;
 }
 
@@ -15,9 +14,7 @@ function magnitude(vector) {
 
 // Actual calculation of the consine similarity
 function calculateCosine(vector1, vector2) {
-    var magnitude1 = magnitude(vector1);
-    var magnitude2 = magnitude(vector2);
-    return dotProductVectors(vector1, vector2)/(magnitude1*magnitude2);
+    return dotProductVectors(vector1, vector2)/(magnitude(vector1)*magnitude(vector2));
 }
 
 // Reads the text in the textbox as long as they're space separated
@@ -53,6 +50,9 @@ function readVectorFromIndexes(set) {
     return insertedArray;
 }
 
+// A helper method that accepts the vector id to read from,
+// a data set to compare it with, and a field id to displace
+// the result from the comparison.
 function computePrintSimilarity(option, dataSet, field) {
     var vector = readVectorFromIndexes(option);
     var a, b;
@@ -62,6 +62,8 @@ function computePrintSimilarity(option, dataSet, field) {
         field);
 }
 
+// Calculates the highest similarity between the vector and set
+// Returns similarity value and it's corresponding vector in the set
 function highestSimilarity(vector, dataSet) {
     var highestComparisonVal = 0;
     var highestComparisonItem = [];
