@@ -5,6 +5,8 @@ Cosine Similarity Measure implemented with document weights
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/jonalmeida/cosine-similarity)
 
+Running example instance [HERE](http://cosine.jonalmeida.com).
+
 ## Pre-requisites
 - If you have [nodejs](https://nodejs.org) and [npm](https://npmjs.org) installed to continue the setup.
 
