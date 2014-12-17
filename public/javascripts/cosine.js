@@ -55,19 +55,10 @@ function printTextBoxResult(text) {
 // You can add more documents and have them appened to the set as well.
 function readVectorFromIndexes() {
     var insertedArray = [];
-    insertedArray.push(Number(document.getElementById("t1").value));
-    insertedArray.push(Number(document.getElementById("t2").value));
-    insertedArray.push(Number(document.getElementById("t3").value));
-    insertedArray.push(Number(document.getElementById("t4").value));
-    insertedArray.push(Number(document.getElementById("t5").value));
-    insertedArray.push(Number(document.getElementById("t6").value));
-    insertedArray.push(Number(document.getElementById("t7").value));
-    insertedArray.push(Number(document.getElementById("t8").value));
-    insertedArray.push(Number(document.getElementById("t9").value));
-    insertedArray.push(Number(document.getElementById("t10").value));
-
+    for (var i = 1; i <= 10; i++) {
+        insertedArray.push(Number(document.getElementById("t"+i).value));
+    };
     dataSet.push(insertedArray);
-    console.log(dataSet);
     return dataSet;
 }
 
