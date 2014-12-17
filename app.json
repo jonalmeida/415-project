@@ -1,5 +1,5 @@
 {
-  "name": "415-project",
+  "name": "Cosine Similarity Example",
   "description": "Cosine Similarity Measure implemented with document weights",
   "keywords": [
     "cosine",
@@ -11,8 +11,8 @@
     "nodejs",
     "express"
   ],
-  "website": "https://github.com/jonalmeida/415-project",
-  "repository": "https://github.com/jonalmeida/415-project",
-  "success_url": "https://github.com/jonalmeida/415-project/blob/master/README.md",
+  "website": "https://github.com/jonalmeida/cosine-similarity",
+  "repository": "https://github.com/jonalmeida/cosine-similarity",
+  "success_url": "https://github.com/jonalmeida/cosine-similarity/blob/master/README.md",
   "env": { }
 }
