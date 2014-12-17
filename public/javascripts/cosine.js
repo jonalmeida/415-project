@@ -36,7 +36,7 @@ function readVectorsFromTextBox() {
 // Prints the results of the textbox calculation
 function printTextBoxResult(text, field) {
     document.getElementById(field).innerHTML = 
-        "<strong>Answer:</strong> " + text;
+        "<strong>Answer:</strong><br>" + text;
 }
 
 // Reads the values in the single text boxes, and adds them 
@@ -58,22 +58,45 @@ function computePrintSimilarity(option, dataSet, field) {
     var res = highestSimilarity(vector, dataSet);
     var a = res[0];
     var b = res[1];
-    printTextBoxResult("Highing similarity <code>" + a + 
-        "</code> from the document <code>[" + b + "]</code>", 
+
+    var myTable = "<table class=\"u-full-width\"><thead><tr><th>Similarity</th><th>Document</th></tr></thead><tbody>";
+
+    for (var i = 0; i < a.length; i++) {
+        myTable += "<tr>";
+        myTable += "<td><code>" + a[i] + "</code></td>";
+        myTable += "<td><code>[" + b[i] + "]</code></td>";
+    };
+    myTable += "</tbody></table>";
+
+    printTextBoxResult(myTable, 
         field);
 }
 
 // Calculates the highest similarity between the vector and set
 // Returns similarity value and it's corresponding vector in the set
 function highestSimilarity(vector, dataSet) {
-    var highestComparisonVal = 0;
+    var highestComparisonVal = [];
     var highestComparisonItem = [];
     for (var i = 0; i < dataSet.length; i++) {
         var comparison = calculateCosine(vector, dataSet[i]);
-        if (comparison > highestComparisonVal) { 
-            highestComparisonVal = comparison;
-            highestComparisonItem = dataSet[i];
-        }
+        var positionToReplace = -1;
+        for (var j = 0; j < 5; j++) {
+
+            if (highestComparisonVal[j] == undefined ) {
+                highestComparisonVal[j] = comparison;
+                highestComparisonItem[j] = dataSet[i];
+                break;
+            }
+            if ( comparison > highestComparisonVal[j] ) {
+                positionToReplace = j;
+            };
+        };
+
+        if (positionToReplace != -1) {
+            highestComparisonVal[positionToReplace] = comparison;
+            highestComparisonItem[positionToReplace] = dataSet[i];
+        };
+
     };
     return [highestComparisonVal, highestComparisonItem];
 }
