@@ -5,23 +5,25 @@ block content
     .row(style='margin-top: 15%')
         h2 Cosine Similarity Measure
         p Cosine Similarity Measure implemented with document weights built for the <a href="http://cs415.joan.myweb.cs.uwindsor.ca">03-60-415</a> project.
-        p It is a measure of similarity between two vectors of an inner product space that measures the cosine of the angle between them, and is commonly used in calculations for data mining.
+        p It is a measure of similarity between two or more vectors of an inner product space that measures the cosine of the angle between them, and is commonly used in calculations for data mining.
     .row.docs-section
         h4#code Code
         pre
             code(class='prettyprint')=dataCode
     .row.docs-section(id='submissionRow')
         h4#example Example
+        h5 Create your own data set
         p A lazy example of how the Cosine Similarity Measure works using raw document weights to replace word weighting.
         br
         h5 Enter digit values:
-        p Enter a space separated list of 10 weights. You can enter as many as you want as long as they are individually separated by a new line:
+        p Enter a space separated list of 10 weights. These documents will the only ones used in the calculation. You can enter as many as you want as long as they are individually separated by a new line:
         textarea(class='u-full-width' placeholder='1 2 3 4 5 6 7 8 9 10' id='vectorBox')
         div#answerLocation <strong>Answer: </strong>
     .row
         input(type='submit' class='button-primary' value='Submit' onclick='printTextBoxResult(calculateCosine(readVectorsFromTextBox()))')
     .row.docs-section
-        h5 Enter digit values:
+        h5 Add to an existing data set
+        p If you want to add a document to an existing set of documents. You can enter values from 1 - 10 in the text boxes below. This document will be added to a data set of 50 other random documents before calculating the Cosine Similarity between them.
         input(type='text' id='t1'  class='u-full-width' placeholder='1').one.column
         input(type='text' id='t2'  class='u-full-width' placeholder='2').one.column
         input(type='text' id='t3'  class='u-full-width' placeholder='3').one.column
@@ -47,12 +49,13 @@ block content
                     input(class='u-full-width' type='email' id='emailInput' placeholder='name@email.com')
                 .six.columns 
                     label Reason for contacting
-                    select(class='u-full-width')
+                    select(class='u-full-width' id='email-reason')
                         option(value='Option 1') Questions
                         option(value='Option 2') Admiration
                         option(value='Option 3') Can I get your number?
             label Message
             textarea(class='u-full-width' placeholder='Hey Jonathan..' id='emailText')
-            input(type='submit' class='button-primary' value='Send' onclick='javascript:window.location=\'mailto:no-reply@jonalmeida.com?subject=Interesting information&body=document.getElementById(emailText) \' + window.location;')
+            input(type='submit' class='button-primary' value='Send' onclick='sendEmail()')
+            //input(type='submit' class='button-primary' value='Send' onclick='javascript:window.location=\'mailto:no-reply@jonalmeida.com?subject=Interesting information&body=\' + window.document.getElementById("emailText").value;')
 
 
