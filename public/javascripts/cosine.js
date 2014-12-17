@@ -104,15 +104,3 @@ var dataSet = [
 [10, 6, 7, 8, 3, 9, 1, 5, 2, 4], [4, 5, 1, 7, 9, 6, 3, 10, 2, 8],
 [8, 4, 7, 5, 3, 10, 9, 1, 6, 2], [4, 6, 7, 10, 3, 8, 2, 5, 9, 1],
 [8, 10, 2, 4, 3, 6, 5, 9, 7, 1], [9, 3, 1, 10, 8, 5, 6, 7, 4, 2]];
-
-
-/* Irrelevant code only meant for prettifying */
-
-// Email sender with the contents of the mailing list
-// Gets whatever text you've entered and adds that to a mailto link
-function sendEmail() {
-    var e = window.document.getElementById("email-reason");
-    var title = e.options[e.selectedIndex].text;
-    window.location='mailto:no-reply@jonalmeida.com?subject=' + 
-        title + '&body=' + window.document.getElementById("emailText").value;
-}
