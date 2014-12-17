@@ -27,10 +27,10 @@ function readVectorsFromTextBox() {
         for (var j = 0; j < lineVectors.length; j++) {
             lineNumVector.push(Number(lineVectors[j]));
         };
-        formattedVectorArray.push(lineNumVector);
+        dataSet.push(lineNumVector);
     };
     console.log(formattedVectorArray);
-    return formattedVectorArray;
+    return dataSet;
 }
 
 // Prints the results of the textbox calculation
@@ -59,9 +59,10 @@ function computePrintSimilarity(option, dataSet, field) {
     var a = res[0];
     var b = res[1];
 
-    var myTable = "<table class=\"u-full-width\"><thead><tr><th>Similarity</th><th>Document</th></tr></thead><tbody>";
+    var myTable = "<table class=\"u-full-width\"><thead>" + 
+        "<tr><th>Similarity</th><th>Document</th></tr></thead><tbody>";
 
-    for (var i = 0; i < a.length; i++) {
+    for (var i = a.length - 1; i >= 0; i--) {
         myTable += "<tr>";
         myTable += "<td><code>" + a[i] + "</code></td>";
         myTable += "<td><code>[" + b[i] + "]</code></td>";
