@@ -1,6 +1,12 @@
 extends layout
 
 block content
+  script.
+    function openWindow( url )
+    {
+      window.open(url, '_blank');
+      window.focus();
+    }
   .container
     .row(style='margin-top: 15%')
         h2 Cosine Similarity Measure
@@ -8,6 +14,7 @@ block content
         p It is a measure of similarity between two or more vectors of an inner product space that measures the cosine of the angle between them, and is commonly used in calculations for data mining.
     .row.docs-section
         h4#code Code
+        p This is code for <code>cosine.js</code> which is used to do all the calculations in javascript. Consider the comments above each method for more clarity on what is actually happening.
         pre
             code(class='prettyprint')=dataCode
     .row.docs-section(id='submissionRow')
@@ -16,7 +23,7 @@ block content
         p A lazy example of how the Cosine Similarity Measure works using raw document weights to replace word weighting.
         br
         h5 Enter custom data set
-        p Enter a space separated list of 10 weights. These documents will the only ones used in the calculation. You can enter as many as you want as long as they are individually separated by a new line. Also enter a document to compare with the data set you provide:
+        p Enter a space separated list of 10 weights. These documents will the only ones used in the calculation. You can enter as many as you want as long as they are individually separated by a new line. Consider get a set of random values from <a href="http://www.random.org/integer-sets/?sets=5&num=10&min=1&max=10&order=index&format=html&rnd=new" onclick="javascript:openWindow(this.href);return false;">RANDOM.ORG</a> Also enter a document to compare with the data set you provide:
         textarea(class='u-full-width' placeholder='1 2 3 4 5 6 7 8 9 10' id='vectorBox')
     .row
         input(type='text' id='u1'  class='u-full-width' placeholder='1').one.column
