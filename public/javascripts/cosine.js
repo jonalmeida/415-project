@@ -55,8 +55,9 @@ function readVectorFromIndexes(set) {
 // the result from the comparison.
 function computePrintSimilarity(option, dataSet, field) {
     var vector = readVectorFromIndexes(option);
-    var a, b;
-    [a, b] = highestSimilarity(vector, dataSet);
+    var res = highestSimilarity(vector, dataSet);
+    var a = res[0];
+    var b = res[1];
     printTextBoxResult("Highing similarity <code>" + a + 
         "</code> from the document <code>[" + b + "]</code>", 
         field);
